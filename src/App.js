@@ -11,7 +11,7 @@ class App extends Component {
           <p>
              I'm reactjs web spa application
              hello world!
-             i'm monstser
+             i'm monstser2
           </p>
           <a
             className="App-link"
