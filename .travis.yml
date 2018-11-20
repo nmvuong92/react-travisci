@@ -19,4 +19,4 @@ on:
 # -exec must be closed with ";" which must be escaped (hence the "s).
 # Finds all files and calls curl to upload them for every file.
 after_success:
-    - curl --ftp-create-dirs --ftp-ssl -p -k  -T $TRAVIS_BUILD_DIR/$wheel_file --user $FTP_USER:$FTP_PASSWD  ftp://bdesroch.privatedns.org/gittmp/$(date +"%Y%m%d")/
+    - curl --ftp-create-dirs --ftp-ssl -p -k  -T $TRAVIS_BUILD_DIR/$wheel_file --user $FTP_USER:$FTP_PASSWD  ftp://ftpupload.net/htdocs
