@@ -6,7 +6,7 @@ jobs:
      steps:
        - checkout
        - run: npm install
-       - run: npm run start
+       - run: npm run build
        - run: node .circleci/deploy.js
        - run: echo "WE'RE ONLINE"
 
