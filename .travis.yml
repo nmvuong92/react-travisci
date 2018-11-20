@@ -1,3 +1,7 @@
+env:
+  global:
+  - 'FTP_USER=epiz_23024084'
+  - 'FTP_PASSWORD=hTgcfcuhP'
 language: node_js
 node_js:
   - "stable"
@@ -10,7 +14,13 @@ script:
 deploy:
   provider: surge
   skip_cleanup: true
-  domain: versed-car.surge.sh
+  domain: bewildered-fall.surge.sh
   project: ./build/
 on:
   branch: master
+
+# Upload site using FTP.
+# -exec must be closed with ";" which must be escaped (hence the "s).
+# Finds all files and calls curl to upload them for every file.
+after_success:
+    'find public -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://ftpupload.net/{} ";"'
