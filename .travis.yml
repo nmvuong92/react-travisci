@@ -15,8 +15,8 @@ deploy:
 on:
   branch: master
 
-# Upload site using FTP.
-# -exec must be closed with ";" which must be escaped (hence the "s).
-# Finds all files and calls curl to upload them for every file.
 after_success:
-    - curl --ftp-create-dirs --ftp-ssl -p -k  -T ./build/ --user $FTP_USER:$FTP_PASSWORD  ftp://ftpupload.net/htdocs
+- echo "vuong ftp upload"
+- curl --ftp-create-dirs
+       -T build/
+       sftp://${FTP_USER}:${FTP_PASSWORD}@ftpupload.net/htdocs
