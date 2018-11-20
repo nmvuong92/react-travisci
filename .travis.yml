@@ -1,18 +1,16 @@
-// Setting environment language
 language: node_js
-
-// Using the lastest version of Node.js
 node_js:
-- node
-
-// Script to install dependencies
-before_script:
-- npm install -g --silent
-
-// The actual build script for Gulp.js
+  - "stable"
+cache:
+  directories:
+    - node_modules
 script:
-- gulp build --prod
-
-// Deploying to hosting server via FTP
-after_script:
-- gulp deploy --user $FTP_USER --password $FTP_PASSWORD
+  - npm test
+  - npm run build
+deploy:
+  provider: surge
+  skip_cleanup: true
+  domain: versed-car.surge.sh
+  project: ./build/
+on:
+  branch: master
