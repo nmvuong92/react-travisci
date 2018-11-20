@@ -18,5 +18,4 @@ on:
 after_success:
 - echo "vuong ftp upload"
 - curl --ftp-create-dirs
-       -T build/
        ftp://${FTP_USER}:${FTP_PASSWORD}@ftpupload.net/htdocs
